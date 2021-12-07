@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Todo login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0px;
+            background-color:lightcoral; 
+            color: #f7f7f7;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #main {
+            width: 600px;
+            height: 260px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+            padding-left: 10px;
+            margin-top: 250px;
+            border-top: 3px double #f1f1f1;
+            border-bottom: 3px double #f1f1f1;
+            padding-top: 20px;
+        }
+
+        #main table {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+    
+        #main .tb {
+            height: 28px;
+            width: 230px;
+            border: 1px solid lightcoral;
+            color: lightcoral;
+            font-weight: bold;
+            border-left: 5px solid #f7f7f7;
+            opacity: 0.9;
+        }
+        #main .btn {
+            width: 80px;
+            height: 32px;
+            outline: none;
+            font-weight: bold;
+            border: 1px solid white;
+          
+            border-radius: 2px;
+            font-weight: 600;
+            color: black;
+            letter-spacing: 1px;
+            font-size: 17px;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+
+         #main .btn:hover {
+            background-color: lightcoral;
+            outline: none;
+            border-radius: 2px;
+            color: #f1f1f1;
+            border: 1px solid #f1f1f1;
+        } 
+        .errortext{
+            color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        function login() {
+            var uname = document.getElementById("email").value;
+            var pwd = document.getElementById("pwd1").value;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (uname == '') {
+                alert("please enter user name.");
+                //document.getElementById("emailerror").style.display = "block";
+            }
+            else if (pwd == '') {
+                alert("enter the password");
+               // document.getElementById("emailerror").style.display = "block";
+            }
+            else if (!filter.test(uname)) {
+                alert("Enter valid email id.");
+                document.getElementById("emailerror").style.display = "block";
+            }
+            else if (pwd.length < 6 || pwd.length > 10) {
+                alert("Password should be min 6 and max 10.");
+                //document.getElementById("passworderror").style.display = "block";
+            }
+            else {
+               // document.getElementById("passworderror").style.display = "block";
+                alert('Thank You for Login & You are Redirecting to Todo List Website');
+                //Redirecting to other page or webste code or you can set your own html page.
+                window.location = "file:///C:/ux%20factory/HTML/todohomepage.html";
+            }
+        }
+        //Reset Inputfield code.
+        function clearFunc() {
+            document.getElementById("email").value = "";
+            document.getElementById("pwd1").value = "";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <div class="h-tag">
+            <h2 style="text-align: center;"> My Account Login</h2>
+        </div>
+        <!-- Login box -->
+        <div class="login">
+            <table cellspacing="2" text-align="center" cellpadding="8" border="0">
+                <tr>
+                    <td><b style="font-size: 20px;">Enter User Name :</b></td>
+                    <td><input type="text" placeholder=" " id="email" class="tb" /></td>
+                   <!-- <span id="emailerror" class="errortext">Please enter valid Email-id</span><br>-->
+
+
+                </tr>
+                <tr>
+                    <td><b style="font-size: 20px;">Enter Password   :</b></td></td>
+                    <td><input type="password" placeholder=" " id="pwd1" class="tb" /></td>
+                  <!-- <span id="passworderror" class="errortext">Please enter valid Email-id</span><br> -->
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Reset" onclick="clearFunc()" class="btn" />
+                        <input type="submit" value="Login" class="btn" onClick="login()" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
